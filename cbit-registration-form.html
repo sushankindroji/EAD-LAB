@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CBIT Registration Form</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h2>CHAITANYA BHARATHI INSTITUTE OF TECHNOLOGY (A)</h2>
+    <p class="sub">Chaitanya Bharathi P.O., Kokapet (V), Gandipet (M), Hyderabad - 500 075, Telangana State</p>
+    <p class="sub">Phone No: 040-24193286, Fax No: 040 – 24193278, Website: <a href="https://www.cbit.ac.in">www.cbit.ac.in</a></p>
+    <h3>ACADEMIC & EXAMINATION CELL</h3>
+    <h3><u>REGISTRATION FORM</u></h3>
+
+    <form>
+      <div class="row">
+        <label>Date: </label><input type="text" />
+      </div>
+      <div class="row">
+        <label>Academic Year: </label><input type="text" />
+      </div>
+
+      <div class="row"><label>1. Name of the Student:</label><input type="text" /></div>
+      <div class="row"><label>2. Roll No.:</label><input type="text" /></div>
+      <div class="row"><label>3. Name of the Programme:</label><input type="text" /></div>
+      <div class="row"><label>Branch:</label><input type="text" /></div>
+      <div class="row"><label>4. Semester:</label><input type="text" /></div>
+      <div class="row"><label>5. Mobile No.:</label><input type="text" /></div>
+      <div class="row"><label>6. Email ID:</label><input type="text" /></div>
+
+      <h4>7. Details of Annual Tuition Fee (Attach Proofs for Payment)</h4>
+      <div class="row"><label>a) Status of Tuition Fee Payment:</label><input type="text" /></div>
+      <div class="row"><label>b) Date of Fee Payment for the Current Academic Year:</label><input type="text" /></div>
+      <div class="row"><label>c) Mode of Payment:</label><input type="text" /></div>
+      <div class="row"><label>d) Receipt No. with date:</label><input type="text" /></div>
+
+      <h4>8. Details of Subjects registering for ____ Semester:</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>S. No.</th>
+            <th>Course Code</th>
+            <th>Name of the Course</th>
+            <th>Core / Elective / Seminar / Project</th>
+            <th>Pursuing through Institute / MOOCs</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Repeat 8 rows -->
+          <script>
+            for (let i = 1; i <= 8; i++) {
+              document.write(`<tr>
+                <td>${i}</td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+              </tr>`);
+            }
+          </script>
+        </tbody>
+      </table>
+
+      <p><strong>Note:</strong> Registration is not permitted with any fee due.</p>
+
+      <div class="row space-top"><label>Signature of the Student: </label><input type="text" /></div>
+
+      <h4>Remarks of Head of the Department:</h4>
+      <div class="row"><label>Fee Due, if any:</label><input type="text" /></div>
+
+      <div class="row"><label>Name and Signature of the Mentor:</label><input type="text" /></div>
+      <div class="row"><label>Signature of the HOD:</label><input type="text" /></div>
+      <br />
+      <div class="bottom-signatures">
+        <p>DIRECTOR – AEC & COE</p>
+        <p>PRINCIPAL</p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
