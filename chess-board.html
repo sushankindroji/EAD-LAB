@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chess Board</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #333;
+  }
+  #chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+    border: 4px solid #222;
+  }
+  .square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-family: "Segoe UI Symbol", sans-serif;
+    cursor: pointer;
+  }
+  .light {
+    background-color: #ffffff;
+  }
+  .dark {
+    background-color: #777;
+  }
+</style>
+</head>
+<body>
+
+<div id="chessboard"></div>
+
+<script>
+  const board = document.getElementById("chessboard");
+
+  // Unicode chess pieces
+  const pieces = {
+    white: ["♖","♘","♗","♕","♔","♗","♘","♖"],
+    whitePawn: "♙",
+    black: ["♜","♞","♝","♛","♚","♝","♞","♜"],
+    blackPawn: "♟"
+  };
+
+  for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 8; col++) {
+      const square = document.createElement("div");
+      square.classList.add("square");
+
+      // Color pattern
+      if ((row + col) % 2 === 0) {
+        square.classList.add("light");
+      } else {
+        square.classList.add("dark");
+      }
+
+      // Add pieces
+      if (row === 0) square.textContent = pieces.black[col];
+      if (row === 1) square.textContent = pieces.blackPawn;
+      if (row === 6) square.textContent = pieces.whitePawn;
+      if (row === 7) square.textContent = pieces.white[col];
+
+      board.appendChild(square);
+    }
+  }
+</script>
+
+</body>
+</html>
