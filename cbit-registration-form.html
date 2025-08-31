@@ -1,80 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CBIT Registration Form</title>
-  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {font-family: Arial, sans-serif; background:#f7f7f7; margin:0; padding:20px;}
+    .container {background:#fff; padding:30px; max-width:1000px; margin:auto; border:1px solid #ccc;}
+    h2,h3 {text-align:center; margin:5px 0;}
+    .sub {text-align:center; font-size:14px; margin:2px;}
+    form {margin-top:20px;}
+    .row {display:flex; flex-wrap:wrap; margin-bottom:10px;}
+    .row label {width:300px; font-weight:bold;}
+    .row input {flex:1; padding:5px; border:1px solid #ccc;}
+    h4 {margin:20px 0 10px;}
+    table {width:100%; border-collapse:collapse; margin-top:10px;}
+    table, th, td {border:1px solid #000;}
+    th, td {padding:6px; text-align:center;}
+    table input {width:95%; border:none; padding:5px;}
+    .space-top {margin-top:20px;}
+    .bottom-signatures {display:flex; justify-content:space-between; margin-top:30px;}
+  </style>
 </head>
 <body>
   <div class="container">
     <h2>CHAITANYA BHARATHI INSTITUTE OF TECHNOLOGY (A)</h2>
     <p class="sub">Chaitanya Bharathi P.O., Kokapet (V), Gandipet (M), Hyderabad - 500 075, Telangana State</p>
-    <p class="sub">Phone No: 040-24193286, Fax No: 040 – 24193278, Website: <a href="https://www.cbit.ac.in">www.cbit.ac.in</a></p>
+    <p class="sub">Phone: 040-24193286 | Fax: 040-24193278 | Website: <a href="https://www.cbit.ac.in">www.cbit.ac.in</a></p>
     <h3>ACADEMIC & EXAMINATION CELL</h3>
     <h3><u>REGISTRATION FORM</u></h3>
 
     <form>
-      <div class="row">
-        <label>Date: </label><input type="text" />
-      </div>
-      <div class="row">
-        <label>Academic Year: </label><input type="text" />
-      </div>
+      <div class="row"><label>Date:</label><input type="text"/></div>
+      <div class="row"><label>Academic Year:</label><input type="text"/></div>
+      <div class="row"><label>1. Name of the Student:</label><input type="text"/></div>
+      <div class="row"><label>2. Roll No.:</label><input type="text"/></div>
+      <div class="row"><label>3. Name of the Programme:</label><input type="text"/></div>
+      <div class="row"><label>Branch:</label><input type="text"/></div>
+      <div class="row"><label>4. Semester:</label><input type="text"/></div>
+      <div class="row"><label>5. Mobile No.:</label><input type="text"/></div>
+      <div class="row"><label>6. Email ID:</label><input type="text"/></div>
 
-      <div class="row"><label>1. Name of the Student:</label><input type="text" /></div>
-      <div class="row"><label>2. Roll No.:</label><input type="text" /></div>
-      <div class="row"><label>3. Name of the Programme:</label><input type="text" /></div>
-      <div class="row"><label>Branch:</label><input type="text" /></div>
-      <div class="row"><label>4. Semester:</label><input type="text" /></div>
-      <div class="row"><label>5. Mobile No.:</label><input type="text" /></div>
-      <div class="row"><label>6. Email ID:</label><input type="text" /></div>
+      <h4>7. Annual Tuition Fee (Attach Proofs)</h4>
+      <div class="row"><label>a) Status of Fee Payment:</label><input type="text"/></div>
+      <div class="row"><label>b) Date of Payment:</label><input type="text"/></div>
+      <div class="row"><label>c) Mode of Payment:</label><input type="text"/></div>
+      <div class="row"><label>d) Receipt No. & Date:</label><input type="text"/></div>
 
-      <h4>7. Details of Annual Tuition Fee (Attach Proofs for Payment)</h4>
-      <div class="row"><label>a) Status of Tuition Fee Payment:</label><input type="text" /></div>
-      <div class="row"><label>b) Date of Fee Payment for the Current Academic Year:</label><input type="text" /></div>
-      <div class="row"><label>c) Mode of Payment:</label><input type="text" /></div>
-      <div class="row"><label>d) Receipt No. with date:</label><input type="text" /></div>
-
-      <h4>8. Details of Subjects registering for ____ Semester:</h4>
+      <h4>8. Subjects Registering for Semester</h4>
       <table>
         <thead>
           <tr>
-            <th>S. No.</th>
-            <th>Course Code</th>
-            <th>Name of the Course</th>
+            <th>S. No.</th><th>Course Code</th><th>Course Name</th>
             <th>Core / Elective / Seminar / Project</th>
-            <th>Pursuing through Institute / MOOCs</th>
-            <th>Remarks</th>
+            <th>Institute / MOOCs</th><th>Remarks</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Repeat 8 rows -->
-          <script>
-            for (let i = 1; i <= 8; i++) {
-              document.write(`<tr>
-                <td>${i}</td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-              </tr>`);
-            }
-          </script>
+          <!-- 8 rows -->
+          <tr><td>1</td><td><input/></td><td><input/></td><td><input/></td><td><input/></td><td><input/></td></tr>
+          <tr><td>2</td><td><input/></td><td><input/></td><td><input/></td><td><input/></td><td><input/></td></tr>
+          <tr><td>3</td><td><input/></td><td><input/></td><td><input/></td><td><input/></td><td><input/></td></tr>
+          <tr><td>4</td><td><input/></td><td><input/></td><td><input/></td><td><input/></td><td><input/></td></tr>
+          <tr><td>5</td><td><input/></td><td><input/></td><td><input/></td><td><input/></td><td><input/></td></tr>
+          <tr><td>6</td><td><input/></td><td><input/></td><td><input/></td><td><input/></td><td><input/></td></tr>
+          <tr><td>7</td><td><input/></td><td><input/></td><td><input/></td><td><input/></td><td><input/></td></tr>
+          <tr><td>8</td><td><input/></td><td><input/></td><td><input/></td><td><input/></td><td><input/></td></tr>
         </tbody>
       </table>
 
       <p><strong>Note:</strong> Registration is not permitted with any fee due.</p>
 
-      <div class="row space-top"><label>Signature of the Student: </label><input type="text" /></div>
+      <div class="row space-top"><label>Signature of Student:</label><input type="text"/></div>
 
-      <h4>Remarks of Head of the Department:</h4>
-      <div class="row"><label>Fee Due, if any:</label><input type="text" /></div>
+      <h4>Remarks of Head of Department</h4>
+      <div class="row"><label>Fee Due (if any):</label><input type="text"/></div>
+      <div class="row"><label>Name & Signature of Mentor:</label><input type="text"/></div>
+      <div class="row"><label>Signature of HOD:</label><input type="text"/></div>
 
-      <div class="row"><label>Name and Signature of the Mentor:</label><input type="text" /></div>
-      <div class="row"><label>Signature of the HOD:</label><input type="text" /></div>
-      <br />
       <div class="bottom-signatures">
         <p>DIRECTOR – AEC & COE</p>
         <p>PRINCIPAL</p>
