@@ -4,135 +4,50 @@
   <meta charset="UTF-8">
   <title>JS Calculator</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #292929;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .calculator {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      width: 260px;
-    }
-
-    #result {
-      width: 100%;
-      height: 50px;
-      font-size: 24px;
-      margin-bottom: 15px;
-      padding: 10px;
-      text-align: right;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .buttons {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-
-    button {
-      padding: 15px;
-      font-size: 18px;
-      border: none;
-      border-radius: 5px;
-      background: #e0e0e0;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    button:hover {
-      background: #d0d0d0;
-    }
-
-    .operator {
-      background-color: #f9a825;
-      color: white;
-    }
-
-    .equal {
-      background-color: #43a047;
-      color: white;
-      grid-column: span 2;
-    }
-
-    .clear {
-      background-color: #e53935;
-      color: white;
-      grid-column: span 2;
-    }
-
-    .backspace {
-      background-color: #ee3131; 
-      color: white;
-    }
-
-    .backspace:hover {
-      background-color: #e92626; 
-    }
+    body{font-family:Arial,sans-serif;background:#292929;display:flex;justify-content:center;align-items:center;height:100vh;margin:0}
+    .calculator{background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 15px rgba(0,0,0,.2);width:260px}
+    #result{width:100%;height:50px;font-size:24px;margin-bottom:15px;padding:10px;text-align:right;border:1px solid #ccc;border-radius:5px}
+    .buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    button{padding:15px;font-size:18px;border:none;border-radius:5px;background:#e0e0e0;cursor:pointer;transition:.2s}
+    button:hover{background:#d0d0d0}
+    .operator{background:#f9a825;color:#fff}
+    .equal{background:#7ace7e;color:#fff;grid-column:span 2}
+    .clear{background:#e15351;color:#fff;grid-column:span 2}
+    .backspace{background:#ea5858;color:#fff}
+    .backspace:hover{background:#e92626}
   </style>
 </head>
 <body>
-
   <div class="calculator">
-    <input type="text" id="result" disabled />
+    <input type="text" id="result" disabled>
     <div class="buttons">
       <button onclick="clearDisplay()" class="clear">C</button>
-      <button onclick="appendValue('/')" class="operator">/</button>
-      <button onclick="appendValue('*')" class="operator">*</button>
-      
-      <button onclick="appendValue('7')">7</button>
-      <button onclick="appendValue('8')">8</button>
-      <button onclick="appendValue('9')">9</button>
-      <button onclick="appendValue('-')" class="operator">-</button>
-      
-      <button onclick="appendValue('4')">4</button>
-      <button onclick="appendValue('5')">5</button>
-      <button onclick="appendValue('6')">6</button>
-      <button onclick="appendValue('+')" class="operator">+</button>
-      
-      <button onclick="appendValue('1')">1</button>
-      <button onclick="appendValue('2')">2</button>
-      <button onclick="appendValue('3')">3</button>
-      <button onclick="appendValue('.')" class="operator">.</button>
-      
-      <button onclick="appendValue('0')">0</button>
+      <button onclick="append('/')" class="operator">/</button>
+      <button onclick="append('*')" class="operator">*</button>
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('-')" class="operator">-</button>
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="append('+')" class="operator">+</button>
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('.')" class="operator">.</button>
+      <button onclick="append('0')">0</button>
       <button onclick="calculate()" class="equal">=</button>
       <button onclick="backspace()" class="backspace">←</button>
     </div>
   </div>
 
   <script>
-    const result = document.getElementById('result');
-
-    function appendValue(value) {
-      result.value += value;
-    }
-
-    function clearDisplay() {
-      result.value = '';
-    }
-
-    function calculate() {
-      try {
-        result.value = eval(result.value);
-      } catch (e) {
-        alert('Invalid expression');
-        clearDisplay();
-      }
-    }
-
-    function backspace() {
-      result.value = result.value.slice(0, -1);
-    }
+    const res=document.getElementById("result");
+    const append=v=>res.value+=v;
+    const clearDisplay=()=>res.value="";
+    const calculate=()=>{try{res.value=eval(res.value)}catch{alert("Invalid");clearDisplay()}};
+    const backspace=()=>res.value=res.value.slice(0,-1);
   </script>
-
 </body>
 </html>
