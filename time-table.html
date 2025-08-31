@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBIT - Class Time Table</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f8f9fa;
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .institute-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .department-name {
+            font-size: 22px;
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .class-details {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .class-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .class-name {
+            color: #ff4757;
+            font-weight: bold;
+        }
+        
+        .wef {
+            color: #ff4757;
+            font-weight: bold;
+        }
+        
+        .room-no {
+            color: #ff4757;
+            font-weight: bold;
+        }
+        
+        .timetable-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .table {
+            margin-bottom: 0;
+        }
+        
+        .table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            vertical-align: middle;
+            font-weight: bold;
+            border: 2px solid #333;
+            padding: 12px 8px;
+        }
+        
+        .table td {
+            text-align: center;
+            vertical-align: middle;
+            border: 2px solid #333;
+            padding: 10px 6px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .day-column {
+            background: #f1f3f4;
+            font-weight: bold;
+            color: #333;
+            width: 120px;
+        }
+        
+        .time-period {
+            font-size: 12px;
+            line-height: 1.2;
+        }
+        
+        .lunch-break {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            font-weight: bold;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 16px;
+            width: 60px;
+        }
+        
+        .subject-ead { background-color: #e3f2fd; color: #1976d2; }
+        .subject-se { background-color: #f3e5f5; color: #7b1fa2; }
+        .subject-cn { background-color: #e8f5e8; color: #388e3c; }
+        .subject-ml { background-color: #fff3e0; color: #f57c00; }
+        .subject-flat { background-color: #fce4ec; color: #c2185b; }
+        .subject-pe { background-color: #e0f2f1; color: #00796b; }
+        .lab { background-color: #fff8e1; color: #ef6c00; font-weight: bold; }
+        .library { background-color: #f3e5f5; color: #8e24aa; }
+        .sports { background-color: #e8f5e8; color: #43a047; }
+        .mentoring { background-color: #e1f5fe; color: #0288d1; font-weight: bold; }
+        
+        .responsive-text {
+            font-size: 13px;
+        }
+        
+        @media (max-width: 768px) {
+            .institute-name { font-size: 20px; }
+            .department-name { font-size: 16px; }
+            .class-details { font-size: 14px; }
+            .table td, .table th { 
+                padding: 6px 4px; 
+                font-size: 10px;
+            }
+            .responsive-text { font-size: 9px; }
+            .lunch-break { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <div class="header-section">
+            <div class="institute-name">CHAITANYA BHARATHI INSTITUTE OF TECHNOLOGY (A)</div>
+            <div class="department-name">Department of Information Technology</div>
+            <div class="class-details">Class Time Table for the AY 2025-26 ODD Semester</div>
+            <div class="class-info">
+                <span class="class-name">Class: BE - V Semester IT-2</span>
+                <span class="wef">W.E.F. : 16/07/2025</span>
+                <span class="room-no">Room No: L-306</span>
+            </div>
+        </div>
+        
+        <div class="timetable-container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="day-column">Day/Time</th>
+                        <th class="time-period">I<br>9:10 To 10:10 AM</th>
+                        <th class="time-period">II<br>10:10 To 11:10 AM</th>
+                        <th class="time-period">III<br>11:15 AM To 12:15 PM</th>
+                        <th class="time-period">12:15 to<br>1:00 PM</th>
+                        <th class="time-period">IV<br>1:00 To 2:00 PM</th>
+                        <th class="time-period">V<br>2:00 To 3:00 PM</th>
+                        <th class="time-period">VI<br>3:05 To 4:05 PM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="day-column">MONDAY</td>
+                        <td class="subject-ead">EAD</td>
+                        <td class="subject-se">SE</td>
+                        <td class="lab responsive-text">EAD LAB (B1)/CN LAB (B2)</td>
+                        <td class="lunch-break" rowspan="6">L<br>U<br>N<br>C<br>H<br><br>B<br>R<br>E<br>A<br>K</td>
+                        <td class="lab responsive-text">EAD LAB (B1)/CN LAB (B2)</td>
+                        <td class="subject-pe">PE-2</td>
+                        <td class="subject-cn">CN</td>
+                    </tr>
+                    <tr>
+                        <td class="day-column">TUESDAY</td>
+                        <td class="subject-cn">CN</td>
+                        <td class="subject-ead">EAD</td>
+                        <td class="subject-ml">ML</td>
+                        <td class="subject-flat">FLAT</td>
+                        <td class="lab responsive-text">ML LAB (B1)/CT LAB (B2)</td>
+                        <td class="lab responsive-text">ML LAB (B1)/CT LAB (B2)</td>
+                    </tr>
+                    <tr>
+                        <td class="day-column">WEDNESDAY</td>
+                        <td class="subject-pe">PE-2</td>
+                        <td class="subject-flat">FLAT</td>
+                        <td class="subject-ml">ML</td>
+                        <td class="subject-se">SE</td>
+                        <td class="sports responsive-text">CC LAB (B1)/SPORTS (B2)</td>
+                        <td class="sports responsive-text">CC LAB (B1)/SPORTS (B2)</td>
+                    </tr>
+                    <tr>
+                        <td class="day-column">THURSDAY</td>
+                        <td class="lab responsive-text">ML LAB (B2)/CT LAB (B1)</td>
+                        <td class="lab responsive-text">ML LAB (B2)/CT LAB (B1)</td>
+                        <td class="subject-flat">CN</td>
+                        <td class="subject-ead">EAD</td>
+                        <td class="library responsive-text">CC LAB (B2)/LIBRARY (B1)</td>
+                        <td class="library responsive-text">CC LAB (B2)/LIBRARY (B1)</td>
+                    </tr>
+                    <tr>
+                        <td class="day-column">FRIDAY</td>
+                        <td class="subject-se">SE</td>
+                        <td class="subject-ml">ML</td>
+                        <td class="subject-cn">FLAT</td>
+                        <td class="subject-pe">PE-2</td>
+                        <td class="lab responsive-text">EAD LAB (B2)/CN LAB (B1)</td>
+                        <td class="lab responsive-text">EAD LAB (B2)/CN LAB (B1)</td>
+                    </tr>
+                    <tr>
+                        <td class="day-column">SATURDAY</td>
+                        <td class="mentoring">MENTORING</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
