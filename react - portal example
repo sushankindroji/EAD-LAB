@@ -1,0 +1,154 @@
+```
+my-project/
+├─ index.html
+├─ src/
+│  ├─ PortalExample.jsx
+│  ├─ main.jsx
+│  ├─ App.css
+│  ├─ index.css
+```
+
+---
+
+### 🧩 `src/PortalExample.jsx`
+
+```jsx
+import React, { useState } from 'react'
+import ReactDOM from 'react-dom'
+import './App.css'
+
+function Modal({ onClose }) {
+  return ReactDOM.createPortal(
+    <div className="overlay">
+      <div className="modal">
+        <h3>I am in a Portal!</h3>
+        <button className="close-btn" onClick={onClose}>
+          Close
+        </button>
+      </div>
+    </div>,
+    document.getElementById('modal-root')
+  )
+}
+
+function PortalExample() {
+  const [show, setShow] = useState(false)
+
+  return (
+    <div className="container">
+      <h2>Portal Example</h2>
+      <button onClick={() => setShow(true)}>Open Modal</button>
+      {show && <Modal onClose={() => setShow(false)} />}
+    </div>
+  )
+}
+
+export default PortalExample
+```
+
+---
+
+### 🧠 `src/main.jsx`
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import PortalExample from './PortalExample.jsx'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <PortalExample />
+  </React.StrictMode>,
+)
+```
+
+---
+
+### 🎨 `src/App.css`
+
+```css
+.container {
+  text-align: center;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+  margin-top: 15px;
+}
+```
+
+---
+
+### 🧾 `src/index.css`
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+```
+
+---
+
+### 🏠 `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Example</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Portal root for modal -->
+    <div id="modal-root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+```
+
+---
+
+### 🚀 Run it
+
+```bash
+npm run dev
+```
+
+Open your browser → you’ll see a button **“Open Modal”**.
+Click it, and a modal pops up rendered through a **React Portal**, hovering over the rest of the page.
+Press **“Close”** to dismiss it. Clean and fully functional.
