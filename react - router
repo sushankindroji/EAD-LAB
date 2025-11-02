@@ -1,0 +1,191 @@
+Got it — you want a **React Router app** structured like that counter example, working in **Vite** with clean full code. Here’s a complete setup with two pages (`Home` and `About`) using **React Router DOM v6**.
+
+---
+
+### 📁 Folder structure
+
+```
+my-router-app/
+├─ index.html
+├─ src/
+│  ├─ App.jsx
+│  ├─ Home.jsx
+│  ├─ About.jsx
+│  ├─ main.jsx
+│  ├─ App.css
+│  ├─ index.css
+```
+
+---
+
+### 🧭 `src/App.jsx`
+
+```jsx
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import Home from './Home'
+import About from './About'
+import './App.css'
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="container">
+        <h1>Router App</h1>
+        <nav className="nav">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  )
+}
+
+export default App
+```
+
+---
+
+### 🏠 `src/Home.jsx`
+
+```jsx
+function Home() {
+  return (
+    <div>
+      <h2>Welcome to the Home Page</h2>
+      <p>This is the main route of the app.</p>
+    </div>
+  )
+}
+
+export default Home
+```
+
+---
+
+### ℹ️ `src/About.jsx`
+
+```jsx
+function About() {
+  return (
+    <div>
+      <h2>About Page</h2>
+      <p>This page shows information about the app.</p>
+    </div>
+  )
+}
+
+export default About
+```
+
+---
+
+### ⚙️ `src/main.jsx`
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+```
+
+---
+
+### 🎨 `src/App.css`
+
+```css
+.container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 40px;
+}
+
+.nav {
+  margin: 20px 0;
+}
+
+.nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+```
+
+---
+
+### 🧾 `src/index.css`
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+```
+
+---
+
+### 🏠 `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Router App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+```
+
+---
+
+### 🚀 Setup & Run
+
+1. Create a new Vite project:
+
+   ```bash
+   npm create vite@latest my-router-app -- --template react
+   cd my-router-app
+   ```
+
+2. Install React Router:
+
+   ```bash
+   npm install react-router-dom
+   ```
+
+3. Replace the `src` and `index.html` files with the code above.
+
+4. Run it:
+
+   ```bash
+   npm run dev
+   ```
+
+You’ll get a clean working **React Router app** — Home and About pages, with navigation just like your counter example.
