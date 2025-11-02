@@ -1,0 +1,120 @@
+Here’s the complete `server.js` code without comments, ready for copy-paste, plus the exact execution steps:
+
+---
+
+### **server.js**
+
+```js
+const express = require('express')
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
+
+const app = express()
+app.use(express.json())
+
+const users = [
+  { id: 1, username: 'user1', password: 'pass1' },
+  { id: 2, username: 'user2', password: 'pass2' },
+  { id: 3, username: 'user3', password: 'pass3' }
+]
+
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || 'your-secret-key'
+
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization']
+  const token = authHeader && authHeader.split(' ')[1]
+  if (!token) return res.status(401).json({ message: 'Access token missing' })
+  jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ message: 'Invalid or expired token' })
+    req.user = user
+    next()
+  })
+}
+
+app.post('/login', (req, res) => {
+  const { username, password } = req.body
+  const user = users.find(u => u.username === username && u.password === password)
+  if (!user) return res.status(401).json({ message: 'Invalid credentials' })
+  const payload = { id: user.id, username: user.username }
+  const accessToken = jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: '1h' })
+  res.json({ accessToken })
+})
+
+app.get('/dashboard', authenticateToken, (req, res) => {
+  res.json({
+    message: `Welcome to your dashboard, ${req.user.username}!`,
+    userData: req.user
+  })
+})
+
+const PORT = 3000
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+```
+
+---
+
+### **Execution Steps**
+
+1. **Open terminal and set up project**
+
+   ```bash
+   mkdir jwt-auth
+   cd jwt-auth
+   npm init -y
+   npm install express jsonwebtoken dotenv
+   ```
+
+2. **Create a `.env` file**
+
+   ```
+   ACCESS_TOKEN_SECRET=your-very-secure-secret
+   ```
+
+3. **Save the above code as `server.js`**
+
+4. **Run the server**
+
+   ```bash
+   node server.js
+   ```
+
+5. **Test in Postman or similar**
+
+   * **Login request**
+
+     * POST → `http://localhost:3000/login`
+     * Body (JSON):
+
+       ```json
+       {
+         "username": "user1",
+         "password": "pass1"
+       }
+       ```
+     * You’ll get:
+
+       ```json
+       { "accessToken": "<your-jwt-token>" }
+       ```
+
+   * **Access protected route**
+
+     * GET → `http://localhost:3000/dashboard`
+     * Header:
+
+       ```
+       Authorization: Bearer <your-jwt-token>
+       ```
+     * Response:
+
+       ```json
+       {
+         "message": "Welcome to your dashboard, user1!",
+         "userData": {
+           "id": 1,
+           "username": "user1",
+           "iat": 1696500000,
+           "exp": 1696503600
+         }
+       }
+       ```
