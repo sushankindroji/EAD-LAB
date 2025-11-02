@@ -1,0 +1,182 @@
+Got it — you want a **Redux app in Vite + React**, similar to your counter and router examples, but this time using your given code style as a base.
+Here’s a **complete working Redux setup**, cleaned up and ready to run.
+
+---
+
+### 📁 Folder structure
+
+```
+my-redux-app/
+├─ index.html
+├─ src/
+│  ├─ ReduxDemo.jsx
+│  ├─ store.js
+│  ├─ main.jsx
+│  ├─ App.css
+│  ├─ index.css
+```
+
+---
+
+### ⚙️ `src/store.js`
+
+```jsx
+import { createStore } from "redux"
+
+const initialState = { globalCount: 0 }
+
+function reducer(state = initialState, action) {
+  switch (action.type) {
+    case "INC":
+      return { globalCount: state.globalCount + 1 }
+    case "DEC":
+      return { globalCount: state.globalCount - 1 }
+    case "RESET":
+      return { globalCount: 0 }
+    default:
+      return state
+  }
+}
+
+const store = createStore(reducer)
+export default store
+```
+
+---
+
+### 🧩 `src/ReduxDemo.jsx`
+
+```jsx
+import { useSelector, useDispatch } from "react-redux"
+import "./App.css"
+
+export default function ReduxDemo() {
+  const dispatch = useDispatch()
+  const value = useSelector((s) => s.globalCount)
+
+  return (
+    <div className="container">
+      <h1>Redux Demo</h1>
+      <h2>{value}</h2>
+      <div className="buttons">
+        <button onClick={() => dispatch({ type: "INC" })}>Inc</button>
+        <button onClick={() => dispatch({ type: "DEC" })}>Dec</button>
+        <button onClick={() => dispatch({ type: "RESET" })}>Reset</button>
+      </div>
+    </div>
+  )
+}
+```
+
+---
+
+### 🧠 `src/main.jsx`
+
+```jsx
+import React from "react"
+import ReactDOM from "react-dom/client"
+import { Provider } from "react-redux"
+import store from "./store.js"
+import ReduxDemo from "./ReduxDemo.jsx"
+import "./index.css"
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <ReduxDemo />
+    </Provider>
+  </React.StrictMode>
+)
+```
+
+---
+
+### 🎨 `src/App.css`
+
+```css
+.container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 50px;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.buttons button {
+  margin: 0 5px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+```
+
+---
+
+### 🧾 `src/index.css`
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+```
+
+---
+
+### 🏠 `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redux Demo</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+```
+
+---
+
+### 🚀 Run it
+
+1. Make a new Vite project:
+
+   ```bash
+   npm create vite@latest my-redux-app -- --template react
+   cd my-redux-app
+   ```
+
+2. Install Redux dependencies:
+
+   ```bash
+   npm install redux react-redux
+   ```
+
+3. Replace the files in `src/` and `index.html` with the code above.
+
+4. Start it:
+
+   ```bash
+   npm run dev
+   ```
+
+You’ll get a working **Redux counter app**, styled and structured exactly like your counter version — just powered by Redux now.
